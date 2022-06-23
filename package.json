@@ -1,0 +1,56 @@
+{
+  "name": "augustine-umeagudosi",
+  "version": "1.0.0",
+  "description": "A bitcoin minning platform",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text --reporter=text-summary mocha --require @babel/register \"./src/**/*.test.js\" --timeout 100000 --exit",
+    "start": "babel-node index.js",
+    "dev": "nodemon --exec babel-node index.js",
+    "migrate": "sequelize db:migrate",
+    "migrate:create": "sequelize migration:create --name",
+    "migrate:down": "sequelize db:migrate:undo",
+    "model:generate": "npx sequelize-cli model:generate --name Transaction --attributes data:string"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ExodusMovementInterviews/Augustine-Umeagudosi.git"
+  },
+  "author": "Augustine Umeagudosi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ExodusMovementInterviews/Augustine-Umeagudosi/issues"
+  },
+  "homepage": "https://github.com/ExodusMovementInterviews/Augustine-Umeagudosi#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cron": "^2.0.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-async-errors": "^3.1.1",
+    "helmet": "^5.1.0",
+    "http-status": "^1.5.2",
+    "lodash": "^4.17.21",
+    "node-fetch": "^2.6.1",
+    "pg": "^8.7.3",
+    "sequelize": "^6.20.1",
+    "uuid": "^8.3.2",
+    "winston": "^3.7.2",
+    "winston-papertrail": "^1.0.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.5",
+    "@babel/node": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/register": "^7.17.7",
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "cross-env": "^7.0.3",
+    "mocha": "^9.2.2",
+    "nyc": "^15.1.0"
+  }
+}
